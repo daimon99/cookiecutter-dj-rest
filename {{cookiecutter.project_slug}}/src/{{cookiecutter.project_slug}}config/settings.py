@@ -144,8 +144,8 @@ JWT_AUTH = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:8000',
-    '127.0.0.1:8000',
+    'localhost:{{cookiecutter.port}}',
+    '127.0.0.1:{{cookiecutter.port}}',
 )
 
 import django.test.runner
