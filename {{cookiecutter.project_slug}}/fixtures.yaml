@@ -1,0 +1,24 @@
+- model: {{cookiecutter.project_slug}}.company
+  pk: 1
+  fields: {created: !!timestamp '2018-06-20 08:32:56.906699+00:00', modified: !!timestamp '2018-06-20
+      08:32:56.906748+00:00', name: "\u4E91\u548C\u4E92\u52A8"}
+- model: auth.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$100000$eISiXiLKYQ1Y$0C0Bc93qPlg+c5h0e+qfoAR0Dmqh9Zf2C81aUdTVSss=
+    last_login: 2018-06-21 06:24:50.499788+00:00
+    is_superuser: true
+    username: tjhb
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: true
+    is_active: true
+    date_joined: 2018-06-20 05:23:00+00:00
+    groups: [1]
+    user_permissions: []
+- model: tjcc.userext
+  pk: 1
+  fields: {created: !!timestamp '2018-06-21 03:34:01.574958+00:00', modified: !!timestamp '2018-06-21
+      05:17:15.612289+00:00', user: 1, company: 1, name: "\u4E91\u548C\u6D4B\u8BD5\
+      \u7528\u62371"}

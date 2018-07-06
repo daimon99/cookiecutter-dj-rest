@@ -1,0 +1,17 @@
+coreapi
+
+django>=2.0.0
+djangorestframework>=3.8.2
+djangorestframework-jwt
+
+django-cors-headers
+django-extensions
+django-filter
+
+markdown
+
+pygments
+pyyaml
+
+whitenoise
+

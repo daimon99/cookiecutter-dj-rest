@@ -1,0 +1,42 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+
+
+    <form action="" method="POST">
+        <p>
+            将以下客户：
+        </p>
+        <ul>
+            {% for c in customers %}
+                <li>{{ c.pk }} - {{ c.name }} - {{ c.mobile_enc }}</li>
+                <input type="hidden" name="_selected_action" value="{{ c.pk }}"/>
+            {% endfor %}
+        </ul>
+
+        <p>
+            分配给任务：
+        </p>
+        {% csrf_token %}
+        <ul style="list-style-type: none;">
+            {% for task in tasks %}
+                <li>
+                    <input title="{{ task.name }} ({{ task.project }}) " type='radio' name="task_id"
+                           value="{{ task.id }}"> {{ task.name }} ({{ task.project }})
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="submit-row">
+            <input type="hidden" name="action" value="assign_task"/>
+            <input type="submit" name="apply" value="提交"/>
+            &nbsp
+            <button type="button" name="cancel" onclick="history.back(-1);" class="module">取消</button>
+
+        </div>
+
+
+    </form>
+
+
+{% endblock %}
