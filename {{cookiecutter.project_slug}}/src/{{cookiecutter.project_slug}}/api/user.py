@@ -10,6 +10,36 @@ from django.contrib.auth.models import User
 from .. import models as m
 """sample
 
+
+# coding: utf-8
+
+from rest_framework import serializers, viewsets, decorators, request, response, status
+from mgcut import mgcut
+
+
+class MangoDialSerializer(serializers.Serializer):
+    mobile = serializers.CharField(max_length=16)
+    name = serializers.CharField(max_length=16)
+
+
+class MangoApi(viewsets.ViewSet):
+    serializers = MangoDialSerializer
+    permission_classes = ()
+
+    @decorators.action(['POST'], detail=False)
+    def dial(self, req: request.Request):
+        serializer = MangoDialSerializer(data=req.data)
+        if serializer.is_valid():
+            try:
+                mgcut.go(serializer.data['mobile'], serializer.data['name'])
+                return response.Response({'code': 0, 'msg': '拨叫成功'})
+            except Exception as e:
+                return response.Response({'code': -1, 'msg': str(e)})
+        else:
+            return response.Response({'code': -2, 'msg': '参数非法', 'data': serializer.errors},
+                                     status=status.HTTP_400_BAD_REQUEST)
+
+
 class UserExtSerializer(serializers.ModelSerializer):
     class Meta:
         model = m.UserExt

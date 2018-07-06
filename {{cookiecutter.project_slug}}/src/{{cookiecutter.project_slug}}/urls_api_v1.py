@@ -22,6 +22,7 @@ from rest_framework import routers, serializers, viewsets
 router = routers.DefaultRouter()
 
 # router.register(r'companies', tjcc.api.CompanyApi)
+# router.register('mango', tjapi.api.MangoApi, base_name='mango')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
