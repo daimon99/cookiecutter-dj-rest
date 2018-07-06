@@ -11,7 +11,7 @@ init:  ## 初始化python环境，并加载测试数据
 
 run: ## 运行后端服务
 	env/bin/python3 src/manage.py collectstatic --noinput
-	env/bin/python3 src/manage.py runserver
+	env/bin/python3 src/manage.py runserver {{cookiecutter.port}}
 
 upgrade: ## 升级后端服务代码
 	env/bin/python3 -m pip install -r requirements.txt

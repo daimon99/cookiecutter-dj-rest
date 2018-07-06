@@ -5,8 +5,11 @@ djangorestframework>=3.8.2
 djangorestframework-jwt
 
 django-cors-headers
+django-environ
 django-extensions
 django-filter
+
+gunicorn
 
 markdown
 
