@@ -8,7 +8,7 @@ from urllib import parse
 
 from django.contrib.auth.models import User
 from .. import models as m
-
+"""sample
 
 class UserExtSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,8 +34,6 @@ class UserApi(viewsets.ReadOnlyModelViewSet):
 
     @decorators.action(['GET'], detail=False)
     def current(self, request):
-        """返回当前登录的用户信息
-        """
         user: User = request.user
         userext = request.user.userext if hasattr(request.user, 'userext') else None
         groups = [i.name for i in user.groups.all()]
@@ -48,12 +46,9 @@ class UserApi(viewsets.ReadOnlyModelViewSet):
 
     @decorators.action(['POST'], detail=False)
     def logout(self, request):
-        """登出。
-        注销该用户使用的资源
-        """
         user: User = request.user
         return Response({
             'code': 0, 'message': '登出成功'
         })
-
+"""
 

@@ -10,6 +10,7 @@ init:  ## 初始化python环境，并加载测试数据
 	@echo "初始化完成。现在你可以运行：make run 启动后端应用了。"
 
 run: ## 运行后端服务
+	env/bin/python3 src/manage.py collectstatic
 	env/bin/python3 src/manage.py runserver
 
 upgrade: ## 升级后端服务代码

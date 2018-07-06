@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import tjcc.api
+import {{ cookiecutter.project_slug }}.api
 from rest_framework import routers, serializers, viewsets
 
 # todo: 以下接口未设置权限隔离，用户可以看到所有数据。正式上线需要屏蔽多余的接口(list/retrieve)
