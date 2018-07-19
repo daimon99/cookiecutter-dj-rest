@@ -10,8 +10,10 @@ init:  ## 初始化python环境，并加载测试数据
 	@echo "初始化完成。现在你可以运行：make run 启动后端应用了。"
 
 run: ## 运行后端服务
-	env/bin/python3 src/manage.py collectstatic --noinput
 	env/bin/python3 src/manage.py runserver {{cookiecutter.port}}
+
+prd: ## 生产环境运行
+	nohup env/bin/python3 src/manage.py runserver {{cookiecutter.port}} 2>&1 &
 
 upgrade: ## 升级后端服务代码
 	env/bin/python3 -m pip install -r requirements.txt
