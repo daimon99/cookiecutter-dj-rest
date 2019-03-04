@@ -14,6 +14,8 @@ gunicorn
 markdown
 
 pygments
+pytest
+pytest-django
 pyyaml
 
 whitenoise
