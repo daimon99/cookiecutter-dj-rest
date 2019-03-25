@@ -11,6 +11,8 @@ django-filter
 
 gunicorn
 
+ipython
+
 markdown
 
 pygments
