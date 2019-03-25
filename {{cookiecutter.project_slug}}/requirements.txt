@@ -1,3 +1,4 @@
+click
 coreapi
 
 django>=2.0.0
@@ -9,7 +10,7 @@ django-environ
 django-extensions
 django-filter
 
-gunicorn
+gunicorn[gevent]
 
 ipython
 
