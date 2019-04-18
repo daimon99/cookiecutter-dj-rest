@@ -23,3 +23,11 @@ make upgrade
 ```
 make run
 ```
+
+
+## FAQ
+
+1. pycharm debug 失败
+
+注意跟下代码。一般来讲如果代码中引入：eventlet.monkey_patch()，就会导致不能debug。
+如 nameko 的 testing/pytest.py 中就有相应代码。注释掉后，pycharm 的 debug 就正常了。

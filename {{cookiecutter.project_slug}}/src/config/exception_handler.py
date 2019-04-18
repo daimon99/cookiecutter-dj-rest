@@ -1,7 +1,7 @@
 # coding: utf-8
 from django.http import Http404
 from rest_framework import exceptions, status
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.response import Response
 from rest_framework.views import set_rollback
 import logging
