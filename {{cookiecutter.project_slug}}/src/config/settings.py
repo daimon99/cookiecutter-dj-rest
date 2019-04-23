@@ -126,6 +126,9 @@ USE_L10N = True
 USE_THOUSAND_SEPARATOR = True
 THOUSAND_SEPARATOR = ','
 NUMBER_GROUPING = 3
+from django.conf.locale.zh_Hans import formats
+
+formats.NUMBER_GROUPING = 3
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
