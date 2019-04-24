@@ -76,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'dapiconfig.context_processors.footer',
             ],
         },
     },
@@ -173,3 +174,5 @@ class MyTestRunner(django.test.runner.DiscoverRunner):
 
 
 TEST_RUNNER = '{{cookiecutter.project_slug}}config.settings.MyTestRunner'
+
+FOOTER = env('FOOTER', default="Copyright &copy; 2002-2019 太极华保科技股份有限公司 版权所有 (京ICP备09058794号)")
