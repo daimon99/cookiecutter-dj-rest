@@ -175,4 +175,4 @@ class MyTestRunner(django.test.runner.DiscoverRunner):
 
 TEST_RUNNER = '{{cookiecutter.project_slug}}config.settings.MyTestRunner'
 
-FOOTER = env('FOOTER', default="Copyright &copy; 2002-2019 太极华保科技股份有限公司 版权所有 (京ICP备09058794号)")
+FOOTER = env('FOOTER', default="Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 版权所有 (京ICP备09058794号)")
