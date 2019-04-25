@@ -16,7 +16,7 @@
   "create_author_file": "y",
   "open_source_license": ["Not open source", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3"],
   "_copy_without_render": [
-        "*.html",        
+        "*.html"   
   ]
 
 }
