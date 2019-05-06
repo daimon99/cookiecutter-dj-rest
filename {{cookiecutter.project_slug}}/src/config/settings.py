@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '{{cookiecutter.project_slug}}config.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '{{cookiecutter.project_slug}}config.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -148,7 +148,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
-    'EXCEPTION_HANDLER': '{{cookiecutter.project_slug}}config.exception_handler.exception_handler',
+    'EXCEPTION_HANDLER': 'config.exception_handler.exception_handler',
 }
 
 JWT_AUTH = {
@@ -173,6 +173,6 @@ class MyTestRunner(django.test.runner.DiscoverRunner):
         pass
 
 
-TEST_RUNNER = '{{cookiecutter.project_slug}}config.settings.MyTestRunner'
+TEST_RUNNER = 'config.settings.MyTestRunner'
 
 FOOTER = env('FOOTER', default="Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 版权所有 (京ICP备09058794号)")
