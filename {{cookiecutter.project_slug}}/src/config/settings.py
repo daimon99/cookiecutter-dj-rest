@@ -12,13 +12,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import datetime
-import environ
 from .loggings import LOGGING
+from . import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -27,7 +25,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = '_uh0jj8&ge&xp_0^*n&ms_@)72pzlmx99-=4!7#esgdiq@%&#k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', True)
+DEBUG = config.debug
 
 ALLOWED_HOSTS = ['*']
 
@@ -35,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     '{{cookiecutter.project_slug}}.apps.{{cookiecutter.project_slug.capitalize()}}Config',
+    'kronos',
 
     'rest_framework',
 
@@ -175,4 +174,4 @@ class MyTestRunner(django.test.runner.DiscoverRunner):
 
 TEST_RUNNER = 'config.settings.MyTestRunner'
 
-FOOTER = env('FOOTER', default="Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 版权所有 (京ICP备09058794号)")
+FOOTER = "Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 版权所有 (京ICP备09058794号)"
