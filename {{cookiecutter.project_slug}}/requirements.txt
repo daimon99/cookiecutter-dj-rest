@@ -1,5 +1,5 @@
 --index-url=http://mirrors.cloud.tencent.com/pypi/simple
---extra-index-url http://<username>:<password>@pypi.taijihuabao.com/
+--extra-index-url http://tjhb@pypi.taijihuabao.com/
 --trusted-host pypi.taijihuabao.com
 
 click
