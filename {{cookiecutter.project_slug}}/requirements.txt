@@ -10,9 +10,10 @@ djangorestframework>=3.8.2
 djangorestframework-jwt
 
 django-cors-headers
-django-kronos
+django-debug-toolbar
 django-extensions
 django-filter
+django-kronos
 
 gunicorn[gevent]
 

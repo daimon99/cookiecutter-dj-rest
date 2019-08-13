@@ -48,9 +48,11 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
 
     'django.contrib.staticfiles',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -159,6 +161,13 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:{{cookiecutter.port}}',
     '127.0.0.1:{{cookiecutter.port}}',
 )
+
+# debug tool bar settings
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
 
 import django.test.runner
 
