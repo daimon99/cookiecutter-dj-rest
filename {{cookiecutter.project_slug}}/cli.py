@@ -1,8 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import sys
+import os
+import logging
 import click
 import subprocess
+
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
+django.setup()
+
+log = logging.getLogger(__name__)
 
 
 @click.group()
