@@ -23,5 +23,8 @@ upgrade: ## 升级后端服务代码
 	env/bin/python3 src/manage.py loaddata --format yaml fixtures.yaml
 	env/bin/python3 src/manage.py collectstatic --noinput
 
+crontab: ## 安装 cron 定时任务
+	cd src && ../env/bin/python3 manage.py installtasks
+
 %:  ## cli命令
 	env/bin/python3 "cli.py" $(MAKECMDGOALS)
