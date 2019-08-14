@@ -8,10 +8,13 @@ init:  ## 初始化python环境，并加载测试数据
 	env/bin/python3 src/manage.py loaddata --format yaml fixtures.yaml
 	@echo "初始化完成。现在你可以运行：make run 启动后端应用了。"
 
-run: ## 运行后端服务
+stop: ## 停止 make prd/ make run 启动的服务
+	-ps -elf|grep {{cookiecutter.project_slug}} | awk '{print $4}' | xargs kill
+
+run: stop ## 运行后端服务(front)
 	env/bin/python3 src/manage.py runserver {{cookiecutter.port}}
 
-prd: ## 生产环境运行
+prd: stop ## 生产环境运行(backend)
 	nohup env/bin/python3 src/manage.py runserver {{cookiecutter.port}} 2>&1 &
 
 upgrade: ## 升级后端服务代码
