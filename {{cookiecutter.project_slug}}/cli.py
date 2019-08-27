@@ -6,6 +6,7 @@ import os
 import logging
 import click
 import subprocess
+import django
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 

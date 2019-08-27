@@ -26,5 +26,8 @@ upgrade: ## 升级后端服务代码
 crontab: ## 安装 cron 定时任务
 	cd src && ../env/bin/python3 manage.py installtasks
 
+cloc: ## 代码量统计。请提前安装cloc(brew install cloc)
+	cloc --exclude-dir="env,docs,logs,include,CMakeFiles,dist,static,theme,build,staticfiles" --exclude-ext="json,xml,yaml,yml,md" .
+
 %:  ## cli命令
 	env/bin/python3 "cli.py" $(MAKECMDGOALS)
