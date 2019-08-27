@@ -161,8 +161,8 @@ JWT_AUTH = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:{{cookiecutter.port}}',
-    '127.0.0.1:{{cookiecutter.port}}',
+    'http://localhost',
+    'http://127.0.0.1',
 )
 
 # debug tool bar settings
