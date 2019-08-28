@@ -6,7 +6,8 @@ from django.shortcuts import render
 from . import models as m
 
 admin.site.site_header = '{{cookiecutter.project_name}}'
-
+admin.site.site_title = '{{cookiecutter.project_name}}'
+admin.site.index_title = '首页'
 
 # Register your models here.
 
