@@ -8,6 +8,7 @@ from . import models as m
 admin.site.site_header = '{{cookiecutter.project_name}}'
 admin.site.site_title = '{{cookiecutter.project_name}}'
 admin.site.index_title = '首页'
+admin.site.site_url = None
 
 # Register your models here.
 
