@@ -35,7 +35,11 @@ INSTALLED_APPS = [
     '{{cookiecutter.project_slug}}.apps.{{cookiecutter.project_slug.capitalize()}}Config',
     'kronos',
 
+    'django_extensions',
+    'django_filters',
+
     'rest_framework',
+    'rest_framework.authtoken',
 
     'corsheaders',
 
@@ -148,6 +152,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',        
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
