@@ -23,6 +23,10 @@ upgrade: ## 升级后端服务代码
 	env/bin/python3 src/manage.py loaddata --format yaml fixtures.yaml
 	env/bin/python3 src/manage.py collectstatic --noinput
 
+deploy: ## 部署服务到supervisor与nginx
+	-sudo cp deploy/nginx/essaygo_prd.conf /etc/nginx/conf.d/
+	-sudo cp deploy/supervisor/essaygo_prd.ini /etc/supervisord.d/
+
 crontab: ## 安装 cron 定时任务
 	cd src && ../env/bin/python3 manage.py installtasks
 
