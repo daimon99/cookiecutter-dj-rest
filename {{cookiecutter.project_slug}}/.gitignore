@@ -1,3 +1,4 @@
+*.pid
 .idea/
 .DS_Store
 *.sqlite3
