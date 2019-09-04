@@ -21,6 +21,8 @@ ipython
 
 markdown
 
+psycopg2-binary
+
 pygments
 pytest
 pytest-django
