@@ -8,8 +8,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 @pytest.fixture(scope='session')
 def django_db_setup():
-    from django.conf import settings
-    settings.DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    pass
+
+
+@pytest.fixture('function')
+def client(db):
+    from rest_framework.test import APIClient
+    from django.contrib.auth.models import User
+    user = User.objects.get(username='tjhb')
+    client = APIClient()
+    client.force_authenticate(user=user)
+    return client
