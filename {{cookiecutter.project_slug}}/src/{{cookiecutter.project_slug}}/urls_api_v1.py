@@ -13,16 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+
 from . import api
-from rest_framework import routers, serializers, viewsets
 
 # todo: 以下接口未设置权限隔离，用户可以看到所有数据。正式上线需要屏蔽多余的接口(list/retrieve)
 router = routers.DefaultRouter()
-
-# router.register(r'companies', tjcc.api.CompanyApi)
-# router.register('mango', tjapi.api.MangoApi, base_name='mango')
+router.register(r'tools', api.ToolsApi, base_name='tools')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
