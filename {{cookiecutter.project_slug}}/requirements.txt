@@ -24,9 +24,12 @@ markdown
 psycopg2-binary
 
 pygments
+pytelegraf
 pytest
 pytest-django
 pyyaml
+
+raven
 
 whitenoise
 

@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
 import datetime
-from .loggings import LOGGING
+import os
+
+import raven
+
 from . import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -34,6 +36,8 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     '{{cookiecutter.project_slug}}.apps.{{cookiecutter.project_slug.capitalize()}}Config',
     'kronos',
+
+    'raven.contrib.django.raven_compat',
 
     'django_extensions',
     'django_filters',
@@ -152,7 +156,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',        
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
@@ -192,3 +196,23 @@ class MyTestRunner(django.test.runner.DiscoverRunner):
 TEST_RUNNER = 'config.settings.MyTestRunner'
 
 FOOTER = "Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 版权所有 (京ICP备09058794号)"
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/{{ cookiecutter.project_slug }}',
+    }
+}
+
+# raven config
+RAVEN_CONFIG = {
+    'dsn': '<replace with your sentry dsn here.>',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(BASE_DIR),
+}
+
+# telegraf conf
+TELEGRAF_HOST = 'localhost'
+TELEGRAF_PORT = 8094
+TELEGRAF_TAGS = {}
