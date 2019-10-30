@@ -1,11 +1,11 @@
 {
   "project_name": "Python Django Simple Boilerplate",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "domain": "{{ cookiecutter.project_slug }}.taijihuabao.com",
   "port": "9999",
   "full_name": "太极华保",
   "email": "daijian1@qq.com",
   "github_username": "daimon99",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_short_description": "{{ cookiecutter.project_name }}",
   "pypi_username": "{{ cookiecutter.github_username }}",
   "version": "0.1.0",
