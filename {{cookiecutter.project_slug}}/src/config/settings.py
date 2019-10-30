@@ -200,7 +200,7 @@ FOOTER = "Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/var/tmp/{{ cookiecutter.project_slug }}',
+        'LOCATION': '/var/tmp/cache_{{ cookiecutter.project_slug }}',
     }
 }
 
