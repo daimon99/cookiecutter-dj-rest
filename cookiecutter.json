@@ -1,6 +1,6 @@
 {
   "project_name": "Python Django Simple Boilerplate",
-  "domain": ".taijihuabao.com",
+  "domain": "{{ cookiecutter.project_slug }}.taijihuabao.com",
   "port": "9999",
   "full_name": "太极华保",
   "email": "daijian1@qq.com",
