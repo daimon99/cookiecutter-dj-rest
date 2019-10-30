@@ -212,7 +212,7 @@ RAVEN_CONFIG = {
     'release': raven.fetch_git_sha(BASE_DIR),
 }
 
-# telegraf conf
+# Use telegraf to monitor your app health.
 TELEGRAF_HOST = 'localhost'
 TELEGRAF_PORT = 8094
 TELEGRAF_TAGS = {}
