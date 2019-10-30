@@ -204,12 +204,18 @@ CACHES = {
     }
 }
 
+# noinspection PyBroadException
+try:
+    release = raven.fetch_git_sha(BASE_DIR)
+except:
+    release = "0.1"
+
 # raven config
 RAVEN_CONFIG = {
     'dsn': '<replace with your sentry dsn here.>',
     # If you are using git, you can also automatically configure the
     # release based on the git info.
-    'release': raven.fetch_git_sha(BASE_DIR),
+    'release': release,
 }
 
 # Use telegraf to monitor your app health.
