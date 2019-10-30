@@ -9,7 +9,7 @@ init:  ## 初始化python环境，并加载测试数据
 	@echo "初始化完成。现在你可以运行：make run 启动后端应用了。"
 
 stop: ## 停止 make prd/ make run 启动的服务
-	-lsof -i:9074 | awk 'NR==2{print $$2}' | xargs kill
+	-lsof -i:{{cookiecutter.port}} | awk 'NR==2{print $$2}' | xargs kill
 		
 run: stop ## 运行后端服务(front)
 	env/bin/python3 src/manage.py runserver {{cookiecutter.port}}
