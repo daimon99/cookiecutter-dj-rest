@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    '{{cookiecutter.project_slug}}.apps.{{cookiecutter.project_slug.capitalize()}}Config',
+    '{{cookiecutter.project_slug}}',
     'kronos',
 
     'raven.contrib.django.raven_compat',
