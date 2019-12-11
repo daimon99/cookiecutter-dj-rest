@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '_uh0jj8&ge&xp_0^*n&ms_@)72pzlmx99-=4!7#esgdiq@%&#k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config.debug
+DEBUG = config.TJHB_DEBUG
 
 ALLOWED_HOSTS = ['*']
 
@@ -196,6 +196,9 @@ class MyTestRunner(django.test.runner.DiscoverRunner):
 TEST_RUNNER = 'config.settings.MyTestRunner'
 
 FOOTER = "Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 版权所有 (京ICP备09058794号)"
+MEDIA_URL = '/public/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+FILE_UPLOAD_PERMISSIONS = 0o644
 
 CACHES = {
     'default': {
@@ -212,13 +215,13 @@ except:
 
 # raven config
 RAVEN_CONFIG = {
-    'dsn': '<replace with your sentry dsn here.>',
+    'dsn': '{{cookiecutter.sentry_dsn}}',
     # If you are using git, you can also automatically configure the
     # release based on the git info.
     'release': release,
 }
 
 # Use telegraf to monitor your app health.
-TELEGRAF_HOST = 'localhost'
+TELEGRAF_HOST = 'telegraf'
 TELEGRAF_PORT = 8094
 TELEGRAF_TAGS = {}
