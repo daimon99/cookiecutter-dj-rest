@@ -24,5 +24,5 @@ ENV TJHB_DEBUG="false" \
 CMD ["/data/prd/{{cookiecutter.project_name}}/docker-entrypoint.sh"]
 
 #STOPSIGNAL SIGINT
-EXPOSE {{port}}
+EXPOSE {{cookiecutter.port}}
 VOLUME /data/prd/${PROJECT}/uploads /data/prd/${PROJECT}/staticfiles
