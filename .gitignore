@@ -1,8 +1,9 @@
-.idea/
-staticfiles/
+/.idea
+/staticfiles/
 .DS_Store
 /nohup.out
 /logs
+/uploads
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

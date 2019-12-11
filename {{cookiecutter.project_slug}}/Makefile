@@ -34,7 +34,7 @@ cloc: ## 代码量统计。请提前安装cloc(brew install cloc)
 	cloc --exclude-dir="env,docs,logs,include,CMakeFiles,dist,static,theme,build,staticfiles" --exclude-ext="json,xml,yaml,yml,md" .
 
 docker-build: ## docker build
-	docker build -f docker/Dockerfile -t tjhb/{{project_name}:latest . --build-arg TJHB_PYPI_PASSWORD=$$TJHB_PYPI_PASSWORD
+	docker build -f docker/Dockerfile -t tjhb/{{project_name}}:latest . --build-arg TJHB_PYPI_PASSWORD=$$TJHB_PYPI_PASSWORD
 
 docker-run: ## docker run
 	docker run --rm -it -p {{project_name}}:{{port}} tjhb/{{project_name}}}

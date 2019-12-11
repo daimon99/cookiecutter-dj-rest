@@ -1,6 +1,7 @@
 {    
     "project_name": "Python Django Simple Boilerplate",
     "port": "9999",
+    "sentry_dsn": "https://sentry.taijihuabao.com",
     "github_username": "daimon99",
     "email": "daijian1@qq.com",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
