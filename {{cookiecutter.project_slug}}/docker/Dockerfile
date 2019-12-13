@@ -1,4 +1,4 @@
-FROM ccr.ccs.tencentyun.com/tjhb/docker-python3:latest
+FROM ccr.ccs.tencentyun.com/tjhb/docker-django2:latest
 
 ARG PROJECT={{cookiecutter.project_name}}
 
