@@ -1,11 +1,4 @@
-FROM python:3.7-slim
-
-COPY ./docker/apt/ubuntu18_sources.list /etc/apt/sources.list
-COPY ./docker/.pip /root/.pip
-COPY ./docker/.netrc /root/.netrc
-
-ARG TJHB_PYPI_PASSWORD="---"
-RUN sed -i "s/<password>/${TJHB_PYPI_PASSWORD}/g" /root/.netrc
+FROM ccr.ccs.tencentyun.com/tjhb/docker-python3:latest
 
 ARG PROJECT={{cookiecutter.project_name}}
 
@@ -14,7 +7,6 @@ RUN pip install -r /data/prd/${PROJECT}/requirements-docker.txt
 
 WORKDIR /data/prd/${PROJECT}
 
-COPY ./docker/.bashrc /root/.bashrc
 COPY . .
 COPY ./src/config/config.example.py /data/prd/${PROJECT}/src/config/config.py
 
