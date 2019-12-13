@@ -214,7 +214,7 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
-    dsn="{{ cookiecutter.SENTRY_DSN}}",
+    dsn="{{ cookiecutter.sentry_dsn}}",
     integrations=[DjangoIntegration()]
 )
 
