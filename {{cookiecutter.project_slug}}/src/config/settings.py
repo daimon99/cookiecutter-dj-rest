@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import datetime
 import os
 
-import raven
-
 from . import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -208,8 +206,6 @@ CACHES = {
     }
 }
 
-
-# raven config
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
