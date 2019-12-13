@@ -37,8 +37,8 @@ docker-build: ## docker build
 	docker build -f docker/Dockerfile -t ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}}:latest .
 
 docker-run: ## docker run
-	if [ -f .env ]; then && docker run --env-file=.env --rm -it -p {{cookiecutter.project_name}}:{{cookiecutter.port}} ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}}} ${{ '{{' }}CMD{{ '}}' }} ; \
-	else docker run --rm -it -p {{cookiecutter.project_name}}:{{cookiecutter.port}} ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}}} ${{ '{{' }}CMD{{ '}}' }} ; fi
+	if [ -f .env ]; then docker run --env-file=.env --rm -it -p {{cookiecutter.project_name}}:{{cookiecutter.port}} ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}}} ${CMD} ; \
+	else docker run --rm -it -p {{cookiecutter.project_name}}:{{cookiecutter.port}} ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}}} ${CMD} ; fi
 
 docker-release: ## merge master to docker
 	-git branch docker
