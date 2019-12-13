@@ -1,7 +1,7 @@
 click
 coreapi
 
-django>=2.0.0,<2.2
+django>=2,<3
 djangorestframework>=3.8.2
 djangorestframework-jwt
 
@@ -24,7 +24,7 @@ pytest
 pytest-django
 pyyaml
 
-raven
+sentry-sdk
 
 whitenoise
 

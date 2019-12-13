@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     '{{cookiecutter.project_slug}}',
     'kronos',
 
-    'raven.contrib.django.raven_compat',
-
     'django_extensions',
     'django_filters',
 
@@ -169,10 +167,13 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=60 * 60 * 24)
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost',
-    'http://127.0.0.1',
-)
+# https://pypi.org/project/django-cors-headers/
+CORS_ORIGIN_ALLOW_ALL = True
+
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost',
+#     'http://127.0.0.1',
+# )
 
 # debug tool bar settings
 INTERNAL_IPS = [
@@ -207,19 +208,15 @@ CACHES = {
     }
 }
 
-# noinspection PyBroadException
-try:
-    release = raven.fetch_git_sha(BASE_DIR)
-except:
-    release = "0.1"
 
 # raven config
-RAVEN_CONFIG = {
-    'dsn': '{{cookiecutter.sentry_dsn}}',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
-    'release': release,
-}
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="{{ cookiecutter.SENTRY_DSN}}",
+    integrations=[DjangoIntegration()]
+)
 
 # Use telegraf to monitor your app health.
 TELEGRAF_HOST = 'telegraf'
