@@ -19,7 +19,7 @@ COPY . .
 COPY ./src/config/config.example.py /data/prd/${PROJECT}/src/config/config.py
 
 ENV TJHB_DEBUG="false" \
-    TJHB_FS_PASSWORD=""
+    SECRET="_uh0jj8&ge&xp_0^*n&ms_@)72pzlmx99-=4!7#esgdiq@%&#k"
 
 CMD ["/data/prd/{{cookiecutter.project_name}}/docker-entrypoint.sh"]
 

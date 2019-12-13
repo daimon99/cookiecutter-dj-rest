@@ -1,0 +1,4 @@
+/.env
+/src/config/config.py
+/.idea/
+/staticfiles/
