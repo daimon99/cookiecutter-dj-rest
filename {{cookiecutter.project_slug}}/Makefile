@@ -9,9 +9,9 @@ init:  ## 初始化python环境，并加载测试数据
 	@echo "初始化完成。现在你可以运行：make run 启动后端应用了。"
 
 init2: ## 简单建立 env/bin/python 来直接搭建环境
-        mkdir -p env/bin
-        ln -s `which python` env/bin/python
-        ln -s `which python` env/bin/python3
+	mkdir -p env/bin
+	ln -s `which python` env/bin/python
+	ln -s `which python` env/bin/python3
 
 stop: ## 停止 make prd/ make run 启动的服务
 	-lsof -i:{{cookiecutter.port}} | awk 'NR==2{print $$2}' | xargs kill
