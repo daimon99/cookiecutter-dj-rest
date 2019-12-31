@@ -200,8 +200,10 @@ MEDIA_URL = '/public/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 FILE_UPLOAD_PERMISSIONS = 0o644
 # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-USE_X_FORWARDED_HOST
+# https://docs.djangoproject.com/en/3.0/ref/settings/#secure-proxy-ssl-header
 # https://gist.github.com/davewongillies/6897161
 USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CACHES = {
     'default': {
