@@ -199,6 +199,9 @@ FOOTER = "Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 
 MEDIA_URL = '/public/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 FILE_UPLOAD_PERMISSIONS = 0o644
+# https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-USE_X_FORWARDED_HOST
+# https://gist.github.com/davewongillies/6897161
+USE_X_FORWARDED_HOST = True
 
 CACHES = {
     'default': {
