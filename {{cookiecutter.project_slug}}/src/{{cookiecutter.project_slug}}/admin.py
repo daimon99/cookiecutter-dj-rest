@@ -22,6 +22,7 @@ class CustomerAdmin(admin.ModelAdmin):
     list_select_related = ('task',)
     autocomplete_fields = ('project', 'task')
     search_fields = ('name', 'mobile_enc', 'project__name', 'task__name')
+    ordering = ('id', )
 
     def get_queryset(self, request):
         if request.user.is_superuser:
