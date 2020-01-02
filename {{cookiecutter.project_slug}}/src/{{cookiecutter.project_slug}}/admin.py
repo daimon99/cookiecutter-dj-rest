@@ -1,3 +1,8 @@
+# coding: utf-8
+
+# https://github.com/lukasvinclav/django-admin-numeric-filter
+from admin_numeric_filter.admin import RangeNumericFilter, NumericFilterModelAdmin
+
 from django.contrib import admin
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -16,13 +21,14 @@ admin.site.site_url = None
 """
 
 @admin.register(m.Customer)
-class CustomerAdmin(admin.ModelAdmin):
+class CustomerAdmin(admin.NumericFilterModelAdmin):
     list_display = ('id', 'project', 'name', 'mobile_enc', 'task_name', 'created', 'modified')
     actions = ('do_uni_update_info', 'do_make_call', 'assign_task')
     list_select_related = ('task',)
     autocomplete_fields = ('project', 'task')
     search_fields = ('name', 'mobile_enc', 'project__name', 'task__name')
     ordering = ('id', )
+    list_filter = (('id', RangeNumericFilter))
 
     def get_queryset(self, request):
         if request.user.is_superuser:
