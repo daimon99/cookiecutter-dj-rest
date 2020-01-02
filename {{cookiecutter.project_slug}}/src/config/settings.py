@@ -14,6 +14,9 @@ import datetime
 import os
 
 from . import config
+from . import loggings
+
+LOGGING = loggings.LOGGING
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -93,10 +96,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': config.DATABASE_URL
 }
 
 # Password validation
@@ -224,3 +224,7 @@ sentry_sdk.init(
 TELEGRAF_HOST = 'telegraf'
 TELEGRAF_PORT = 8094
 TELEGRAF_TAGS = {}
+
+# celery
+
+CELERY_BROKER_URL = config.CELERY_BROKER_URL
