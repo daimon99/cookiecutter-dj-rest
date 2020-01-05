@@ -15,7 +15,7 @@ ENV TJHB_DEBUG="false" \
     DATABASE_URL="sqlite:///db.sqlite3" \
     CELERY_BROKER_URL="amqp://username:password@host:5672/xxx"
 
-CMD ["/data/prd/{{cookiecutter.project_name}}/docker/docker-entrypoint.sh"]
+ENTRYPOINT ["/data/prd/{{cookiecutter.project_name}}/docker/docker-entrypoint.sh"]
 
 #STOPSIGNAL SIGINT
 EXPOSE {{cookiecutter.port}}

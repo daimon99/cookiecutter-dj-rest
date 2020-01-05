@@ -32,7 +32,7 @@ case "$1" in
         python3 src/manage.py migrate
         python3 src/manage.py loaddata --format yaml fixtures.yaml
         python3 src/manage.py collectstatic --noinput
-        cd src && gunicorn -c gunicorn.conf.py -p gunicorn-{{cookiecutter.project_slug}}.pid config.wsgi
+        PYTHONPATH=./src gunicorn -c src/gunicorn.conf.py -p gunicorn-{{cookiecutter.project_slug}}.pid config.wsgi
     ;;
     bash)
         /bin/bash "${@:2}"
