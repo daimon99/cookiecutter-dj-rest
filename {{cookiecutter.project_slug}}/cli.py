@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import sys
-import os
 import logging
-import click
+import os
 import subprocess
+import sys
+
+import click
 import django
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
@@ -28,6 +29,25 @@ def mm():
     subprocess.call('python src/manage.py makemigrations', shell=True)
     click.secho('migrate...', fg='yellow')
     subprocess.call('python src/manage.py migrate', shell=True)
+
+
+@main.command()
+def ok():
+    """通知服务ok"""
+    # 发送启动通知
+    import requests
+    import socket
+    from django.utils.timezone import now
+    from django.conf import settings
+    qywx_notice_key = "<robot key>"
+    if qywx_notice_key != "<robot key>":
+	    requests.post(
+	        'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=key',
+	        json={
+	            "msgtype": "text",
+	            "text": {
+	                "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}] 服务重启完成: {socket.gethostname()}, {now().astimezone()}"
+	            }})
 
 
 if __name__ == '__main__':
