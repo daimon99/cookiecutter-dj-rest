@@ -48,6 +48,8 @@ def ok():
 	            "text": {
 	                "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}] 服务重启完成: {socket.gethostname()}, {now().astimezone()}"
 	            }})
+	else:
+		print("If you want to get a notice after deploy, please provide a key in the above.")
 
 
 if __name__ == '__main__':

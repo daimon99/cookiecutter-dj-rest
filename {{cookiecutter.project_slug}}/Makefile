@@ -46,6 +46,7 @@ docker-run: ## docker run
 	else docker run --rm -it -p {{cookiecutter.port}}:{{cookiecutter.port}} ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}} ${CMD} ; fi
 
 docker-release: ## merge master to docker
+	bumpversion patch
 	-git branch docker
 	git checkout docker
 	git merge master
