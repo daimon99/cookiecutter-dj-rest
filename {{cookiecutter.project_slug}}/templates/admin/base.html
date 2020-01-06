@@ -85,7 +85,7 @@
     </div>
     <!-- END Content -->
 
-    {% block footer %}<div id="footer">{% autoescape off %}{{ footer }}{% endautoescape %}</div>{% endblock %}
+    {% block footer %}<div id="footer">{% autoescape off %}{{ footer }} [VERSION: {{ version }}]{% endautoescape %}</div>{% endblock %}
 </div>
 <!-- END Container -->
 {% block js %}
