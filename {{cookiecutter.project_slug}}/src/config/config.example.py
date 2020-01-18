@@ -14,3 +14,4 @@ SECRET_KEY = env.bool('SECRET_KEY', default='_uh0jj8&ge&xp_0^*n&ms_@)72pzlmx99-=
 DATABASE_URL = env.db_url('DATABASE_URL', default='sqlite:///db.sqlite3')
 CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='amqp://username:password@host:5672/xxx')
 OPENAUTH_JWT_SECRET = env('OPENAUTH_JWT_SECRET', default='')
+QYWX_LOGIN_URL = env("QYWX_LOGIN_URL", default="https://open.taijihuabao.com/api/openauth/qywx?next=")
