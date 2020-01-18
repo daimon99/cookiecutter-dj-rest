@@ -41,15 +41,15 @@ def ok():
     from django.conf import settings
     qywx_notice_key = "<robot key>"
     if qywx_notice_key != "<robot key>":
-	    requests.post(
-	        'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=key',
-	        json={
-	            "msgtype": "text",
-	            "text": {
-	                "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}] 服务重启完成: {socket.gethostname()}, {now().astimezone()}"
-	            }})
-	else:
-		print("If you want to get a notice after deploy, please provide a key in the above.")
+        requests.post(
+            'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=key',
+            json={
+                "msgtype": "text",
+                "text": {
+                    "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}] 服务重启完成: {socket.gethostname()}, {now().astimezone()}"
+                }})
+    else:
+        print("If you want to get a notice after deploy, please provide a key in the above.")
 
 
 if __name__ == '__main__':
