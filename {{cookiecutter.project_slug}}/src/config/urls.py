@@ -19,6 +19,32 @@ from rest_framework.documentation import include_docs_urls
 from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token, refresh_jwt_token
 from django.conf import settings
 
+admin.site.site_header = '{{cookiecutter.project_name}}'
+admin.site.site_title = '{{cookiecutter.project_name}}'
+admin.site.index_title = '首页'
+admin.site.site_url = None
+
+# 如果要对菜单排序，参考下面代码：
+
+"""
+def get_app_list(self, request):
+    ordering = {
+                "Event heros": 1,
+                "Event villains": 2,
+                "Epics": 3,
+                "Events": 4
+    }
+    app_dict = self._build_app_dict(request)
+    # a.sort(key=lambda x: b.index(x[0]))
+    # Sort the apps alphabetically.
+    app_list = sorted(app_dict.values(), key=lambda x: x['name'].lower())
+    # Sort the models alphabetically within each app.
+    for app in app_list:
+        app['models'].sort(key=lambda x: x['name'])
+    return app_list
+admin.get_app_list = get_app_list
+"""
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('{{cookiecutter.project_slug}}.urls_api_v1')),
