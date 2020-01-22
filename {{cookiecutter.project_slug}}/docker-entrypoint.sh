@@ -5,7 +5,7 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-CODE_DIR=/data/prd/{{cookiecutter.project_slug}}
+[[ -z "${CODE_DIR}" ]] &&  CODE_DIR="/data/prd/{{cookiecutter.project_slug}}"
 
 cd $CODE_DIR
 

@@ -3,11 +3,17 @@
 
 import logging
 import os
+import socket
 import subprocess
 import sys
 
 import click
 import django
+import requests
+from django.conf import settings
+from django.utils.timezone import now
+
+QYWX_NOTIFY_URL = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<请自己申请 key>'
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
@@ -35,14 +41,10 @@ def mm():
 def ok():
     """通知服务ok"""
     # 发送启动通知
-    import requests
-    import socket
-    from django.utils.timezone import now
-    from django.conf import settings
     qywx_notice_key = "<robot key>"
     if qywx_notice_key != "<robot key>":
         requests.post(
-            'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=key',
+            QYWX_NOTIFY_URL,
             json={
                 "msgtype": "text",
                 "text": {
@@ -51,6 +53,18 @@ def ok():
     else:
         print("If you want to get a notice after deploy, please provide a key in the above.")
 
+
+@main.command()
+def fail():
+    """发送失败通知"""
+    # 发送启动通知
+    requests.post(
+        QYWX_NOTIFY_URL,
+        json={
+            "msgtype": "text",
+            "text": {
+                "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}]  代码更新失败，请检查服务！ {socket.gethostname()}, {now().astimezone().strftime('%Y/%m/%d %H:%M:%S')}"
+            }})
 
 if __name__ == '__main__':
     main()

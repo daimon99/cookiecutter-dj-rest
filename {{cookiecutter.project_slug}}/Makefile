@@ -54,6 +54,9 @@ docker-release: ## merge master to docker
 	git merge master
 	git checkout master
 
+CODE_DIR ?= .
+test: ## test docker
+	CODE_DIR=$(CODE_DIR) ./docker-entrypoint.sh runserver
 
 %:  ## cli命令
 	env/bin/python "cli.py" $(MAKECMDGOALS)
