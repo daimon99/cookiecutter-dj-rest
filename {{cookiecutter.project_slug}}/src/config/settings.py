@@ -16,6 +16,8 @@ import os
 from . import config
 from . import loggings
 
+VERSION = "1.0.0"
+
 LOGGING = loggings.LOGGING
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -36,6 +38,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     '{{cookiecutter.project_slug}}',
+    'openauth',
     'kronos',
 
     'django_extensions',
@@ -226,5 +229,8 @@ TELEGRAF_PORT = 8094
 TELEGRAF_TAGS = {}
 
 # celery
-
 CELERY_BROKER_URL = config.CELERY_BROKER_URL
+
+# django-openauth
+OPENAUTH_JWT_SECRET = config.OPENAUTH_JWT_SECRET
+QYWX_LOGIN_URL = config.QYWX_LOGIN_URL

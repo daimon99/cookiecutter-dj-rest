@@ -67,7 +67,7 @@ LOGGING = {
             'propagate': False
         },
         '{{cookiecutter.project_slug}}': {
-            'handlers': ['app_file'],
+            'handlers': ['app_file', 'console'],
             'level': 'INFO',
             'propagate': False
         }
