@@ -22,3 +22,9 @@
 CREATE USER {{cookiecutter.project_slug}}_prd WITH PASSWORD '<password>'; 
 CREATE DATABASE {{cookiecutter.project_slug}}_prd OWNER {{cookiecutter.project_slug}}_prd; 
 ```
+
+3. 代码调试
+
+```
+from IPython import embed; embed()
+```
