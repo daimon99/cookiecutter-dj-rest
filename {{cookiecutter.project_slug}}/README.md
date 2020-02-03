@@ -1,29 +1,11 @@
-# {{cookiecutter.project_slug}}
+# {{cookiecutter.project_name}}
 
-## 安装条件
+## 开发环境构建 与 系统设计说明
 
-* xxx
+参考 
 
-## 安装说明
-
-* 构建运行环境
-
-```
-make init
-```
-
-* 代码升级
-
-```
-make upgrade
-```
-
-* 启动服务
-
-```
-make run
-```
-
+* docs/DESIGN.rst
+* docs/CONTRIBUTING.rst
 
 ## FAQ
 
@@ -39,31 +21,4 @@ make run
 ```sql
 CREATE USER {{cookiecutter.project_slug}}_prd WITH PASSWORD '<password>'; 
 CREATE DATABASE {{cookiecutter.project_slug}}_prd OWNER {{cookiecutter.project_slug}}_prd; 
-```
-
-	注意如果用 远程数据库，请把账号密码放在 `config.py` 中。不要提交到代码库中
-
-	`config.py`
-
-```python
-db_name = '<name>'
-db_host = '<host>'
-db_port = '<port>'
-db_user = '<username>'
-db_password = '<password>'
-```
-
-	`settings.py`
-
-```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config.db_name,
-        'USER': config.db_user,
-        'PASSWORD': config.db_password,
-        'HOST': config.db_host,
-        'PORT': config.db_port,
-	}
-}	
 ```

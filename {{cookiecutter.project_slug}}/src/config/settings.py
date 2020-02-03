@@ -38,6 +38,13 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     '{{cookiecutter.project_slug}}',
+    # 'simpleui',
+
+    'django_dj_plugin',
+    'django_bestzhlocale',
+
+    # 'admin_auto_filters',  # https://pypi.org/project/django-admin-autocomplete-filter/
+
     'openauth',
     'kronos',
 
@@ -123,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'zh-Hans'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -199,7 +206,7 @@ class MyTestRunner(django.test.runner.DiscoverRunner):
 TEST_RUNNER = 'config.settings.MyTestRunner'
 
 FOOTER = "Copyright &copy; 2002-2019 北京太极华保科技股份有限公司 版权所有 (京ICP备09058794号)"
-MEDIA_URL = '/public/'
+MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 FILE_UPLOAD_PERMISSIONS = 0o644
 # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-USE_X_FORWARDED_HOST
