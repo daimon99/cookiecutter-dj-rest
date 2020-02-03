@@ -89,7 +89,7 @@ urlpatterns = [
     path('api/auth-jwt/', obtain_jwt_token),  # POST email=email&password=password
     path('api/auth-jwt-verify/', verify_jwt_token),
     path('api/auth-jwt-refresh/', refresh_jwt_token),
-    path(f'upload/<path:path>', private_view())
+    path(f'upload/<path:path>', private_view)
 ]
 
 if settings.DEBUG:
