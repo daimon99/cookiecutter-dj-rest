@@ -5,7 +5,7 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-CODE_DIR=/data/prd/{{cookiecutter.project_slug}}
+[[ -z "${CODE_DIR}" ]] &&  CODE_DIR="/data/prd/{{cookiecutter.project_slug}}"
 
 cd $CODE_DIR
 
@@ -29,7 +29,7 @@ case "$1" in
     runserver)
         echo "Running Development Server..."
         pip3 install -r requirements-docker.txt
-        python3 src/manage.py migrate
+        python3 src/manage.py migrate || (python3 cli.py fail; exit 1)
         python3 src/manage.py loaddata --format yaml fixtures.yaml
         python3 src/manage.py collectstatic --noinput
         python3 cli.py ok

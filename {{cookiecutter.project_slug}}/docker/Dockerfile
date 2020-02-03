@@ -17,7 +17,7 @@ ENV TJHB_DEBUG="false" \
     OPENAUTH_JWT_SECRET="" \
     QYWX_LOGIN_URL="https://open.taijihuabao.com/api/openauth/qywx?next="
 
-ENTRYPOINT ["/data/prd/{{cookiecutter.project_name}}/docker/docker-entrypoint.sh"]
+ENTRYPOINT ["/data/prd/{{cookiecutter.project_name}}/docker-entrypoint.sh"]
 
 #STOPSIGNAL SIGINT
 EXPOSE {{cookiecutter.port}}

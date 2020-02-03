@@ -13,7 +13,7 @@ import requests
 from django.conf import settings
 from django.utils.timezone import now
 
-QYWX_NOTIFY_URL = '<企业微信机器人的调用地址>'
+QYWX_NOTIFY_URL = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=<请自己申请 key>'
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
@@ -41,13 +41,17 @@ def mm():
 def ok():
     """通知服务ok"""
     # 发送启动通知
-    requests.post(
-        QYWX_NOTIFY_URL,
-        json={
-            "msgtype": "text",
-            "text": {
-                "content": f"{{cookiecutter.project_name}} [{settings.VERSION}]  代码更新，服务重启完成: {socket.gethostname()}, {now().astimezone().strftime('%Y/%m/%d %H:%M:%S')}"
-            }})
+    qywx_notice_key = "<robot key>"
+    if qywx_notice_key != "<robot key>":
+        requests.post(
+            QYWX_NOTIFY_URL,
+            json={
+                "msgtype": "text",
+                "text": {
+                    "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}] 服务重启完成: {socket.gethostname()}, {now().astimezone()}"
+                }})
+    else:
+        print("If you want to get a notice after deploy, please provide a key in the above.")
 
 
 @main.command()
@@ -59,7 +63,7 @@ def fail():
         json={
             "msgtype": "text",
             "text": {
-                "content": f"{{cookiecutter.project_name}} [{settings.VERSION}]  代码更新失败，请检查服务！ {socket.gethostname()}, {now().astimezone().strftime('%Y/%m/%d %H:%M:%S')}"
+                "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}]  代码更新失败，请检查服务！ {socket.gethostname()}, {now().astimezone().strftime('%Y/%m/%d %H:%M:%S')}"
             }})
 
 
