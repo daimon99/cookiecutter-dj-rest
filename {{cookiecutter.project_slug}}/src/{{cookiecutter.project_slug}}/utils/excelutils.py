@@ -1,6 +1,7 @@
 # coding: utf-8
 import copy
 import datetime
+import decimal
 from typing import List
 
 import xlwt
@@ -64,7 +65,7 @@ alignment: wrap true;
             else:
                 value = val
                 style = self.current_style
-                if isinstance(value, float):
+                if isinstance(value, decimal.Deciaml):
                     style = self.style_money_format
                 elif isinstance(value, datetime.date):
                     style = self.style_date_format
