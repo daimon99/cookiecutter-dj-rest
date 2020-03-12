@@ -29,9 +29,9 @@ case "$1" in
     runserver)
         echo "Running Development Server..."
         pip3 install -r requirements-docker.txt
-        python3 src/manage.py migrate || (python3 cli.py fail; exit 1)
-        python3 src/manage.py loaddata --format yaml fixtures.yaml
-        python3 src/manage.py collectstatic --noinput
+        python3 src/manage.py migrate || (echo "migrate return: "$?; python3 cli.py fail; exit 1)
+        python3 src/manage.py loaddata --format yaml fixtures.yaml ||  (echo "load data return: "$?; python3 cli.py fail; exit 1)
+        python3 src/manage.py collectstatic --noinput || (echo "collectstatic return: "$?; python3 cli.py fail; exit 1)
         python3 cli.py ok
         PYTHONPATH=./src gunicorn -c src/gunicorn.conf.py -p gunicorn-{{cookiecutter.project_slug}}.pid config.wsgi
     ;;
