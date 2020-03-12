@@ -17,7 +17,7 @@ init2: ## 简单建立 env/bin/python 来直接搭建环境
 
 stop: ## 停止 make prd/ make run 启动的服务
 	-lsof -i:{{cookiecutter.port}} | awk 'NR==2{print $$2}' | xargs kill
-		
+
 run: stop ## 运行后端服务(front)
 	env/bin/python src/manage.py runserver {{cookiecutter.port}}
 
@@ -49,8 +49,7 @@ docker-run: ## docker run
 
 docker-release: ## merge master to docker
 	bumpversion patch
-	-git branch docker
-	git checkout docker
+	git checkout -b docker origin/docker
 	git merge master
 	git checkout master
 
