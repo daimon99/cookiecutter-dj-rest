@@ -3,20 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-{{ cookiecutter.project_name }}
-===================================
+{{ cookiecutter.project_name }}开发手册
+=======================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 目录
+   :numbered:
 
-   后台管理使用手册
+   VERSION
+   DESIGN
+   CONTRIBUTING
 
-
-
-索引
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+..  API
+..  API 文档不建议包含。因为看起来没啥用。除非写的特别好
+..  API文档还会有一个考虑，就是唬人用。如果不求唬人，还是别放了吧

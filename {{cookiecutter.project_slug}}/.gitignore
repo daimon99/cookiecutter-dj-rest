@@ -12,6 +12,7 @@
 *.so
 *.spec
 *.sqlite3
+*.swp
 .cache
 .coverage
 .coverage.*

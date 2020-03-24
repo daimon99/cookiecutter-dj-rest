@@ -1,4 +1,4 @@
-{    
+{
     "project_name": "Python Django Simple Boilerplate",
     "port": "9999",
     "sentry_dsn": "https://db138c4cb8f94f43ba7dd5d3d54fe529@sentry.taijihuabao.com/9",
@@ -26,6 +26,7 @@
         "GNU General Public License v3"
     ],
     "_copy_without_render": [
-        "*.html"
+        "*.html",
+        "*.dot"
     ]
 }

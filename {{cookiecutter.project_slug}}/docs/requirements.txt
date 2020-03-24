@@ -1,0 +1,4 @@
+sphinx
+sphinx_py3doc_enhanced_theme
+sphinx_rtd_theme
+sphinxcontrib-httpdomain

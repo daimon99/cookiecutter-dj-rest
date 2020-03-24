@@ -66,5 +66,14 @@ def fail():
                 "content": f"{{cookiecutter.project_slug}} [{settings.VERSION}]  代码更新失败，请检查服务！ {socket.gethostname()}, {now().astimezone().strftime('%Y/%m/%d %H:%M:%S')}"
             }})
 
+
+@main.command()
+def backup():
+    """基础数据备份"""
+    import subprocess
+    subprocess.getoutput(
+        "python src/manage.py dumpdata --format yaml auth openauth {{cookiecutter.project_slug}} > fixtures-backup.yaml ")
+
+
 if __name__ == '__main__':
     main()

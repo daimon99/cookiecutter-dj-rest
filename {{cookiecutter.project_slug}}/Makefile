@@ -59,5 +59,21 @@ test: ## Smoke Test suit
 docker-test: ## test docker
 	docker build -f ./docker/Dockerfile -t ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}}:latest .
 
+doc: ## 构建 doc 文档, 并查看
+	cd docs && make open
+
+epub: ## 构建 epub 模式文档
+	cd docs && make epub && open -a finder _build/epub
+
+pdf: ## 构建 pdf 文档
+	cd docs && make pdf
+
+doc-clean: ## 清理 doc 构建数据
+	cd docs && make clean
+
+CODE_DIR ?= .
+test: ## test docker
+	CODE_DIR=$(CODE_DIR) ./docker-entrypoint.sh runserver
+
 %:  ## cli命令
 	env/bin/python "cli.py" $(MAKECMDGOALS)
