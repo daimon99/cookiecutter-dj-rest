@@ -47,15 +47,17 @@ docker-run: ## docker run
 	if [ -f .env ]; then docker run --env-file=.env --rm -it -p {{cookiecutter.port}}:{{cookiecutter.port}} ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}} ${CMD} ; \
 	else docker run --rm -it -p {{cookiecutter.port}}:{{cookiecutter.port}} ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}} ${CMD} ; fi
 
-docker-release: ## merge master to docker
+docker-release: test docker-test ## merge master to docker
 	bumpversion patch
 	git checkout -b docker origin/docker
 	git merge master
 	git checkout master
 
-CODE_DIR ?= .
-test: ## test docker
-	CODE_DIR=$(CODE_DIR) ./docker-entrypoint.sh runserver
+test: ## Smoke Test suit
+	PYTHONPATH=./src pytest -m "smoke"
+
+docker-test: ## test docker
+	docker build -f ./docker/Dockerfile -t ccr.ccs.tencentyun.com/tjhb/{{cookiecutter.project_name}}:latest .
 
 %:  ## cli命令
 	env/bin/python "cli.py" $(MAKECMDGOALS)
