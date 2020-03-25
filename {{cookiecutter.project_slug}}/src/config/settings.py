@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 
     'corsheaders',
 
-    'django.contrib.admin',
+    'custadmin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
