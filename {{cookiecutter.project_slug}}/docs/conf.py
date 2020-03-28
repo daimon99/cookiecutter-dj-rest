@@ -42,6 +42,7 @@ extensions = [
     'sphinx.ext.imgmath',
     'sphinx.ext.viewcode',
     'sphinxcontrib_django',
+    'sphinxcontrib.plantuml',
     # 'sphinx_autodoc_typehints',
 ]
 
@@ -94,3 +95,6 @@ autodoc_default_flags = ['members', 'private-members', 'undoc-members', 'show-in
 # epub config
 version = release
 epub_basename = f'{{cookiecutter.project_slug}}开发手册-{version}'
+
+# plantuml
+plantuml_syntax_error_image = True
