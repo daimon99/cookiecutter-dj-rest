@@ -5,3 +5,4 @@
 /logs/*.log
 /src/config/config.py
 /staticfiles/
+/uploads/
