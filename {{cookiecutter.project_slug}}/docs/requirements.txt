@@ -1,5 +1,6 @@
 sphinx
 sphinx_py3doc_enhanced_theme
 sphinx_rtd_theme
+sphinx-autobuild
 sphinxcontrib-httpdomain
 sphinxcontrib-plantuml
