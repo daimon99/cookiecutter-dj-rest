@@ -43,7 +43,7 @@ docker-run: ## docker run
 
 docker-release: test docker-test ## merge master to docker
 	bumpversion patch
-	git checkout -b docker origin/docker
+	git checkout -B docker origin/docker
 	git merge master
 	git checkout master
 
@@ -64,10 +64,6 @@ pdf: ## 构建 pdf 文档
 
 doc-clean: ## 清理 doc 构建数据
 	cd docs && make clean
-
-CODE_DIR ?= .
-test: ## test docker
-	CODE_DIR=$(CODE_DIR) ./docker-entrypoint.sh runserver
 
 %:  ## cli命令
 	python "cli.py" $(MAKECMDGOALS)

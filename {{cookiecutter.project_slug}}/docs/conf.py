@@ -17,8 +17,8 @@ import django
 sys.path.insert(0, os.path.abspath('../src'))
 
 # 配置 django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
-django.setup()
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+# django.setup()
 
 # -- Project information -----------------------------------------------------
 

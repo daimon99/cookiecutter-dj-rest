@@ -35,14 +35,17 @@ open: html
 	open _build/html/index.html
 
 install-mac:
+	brew install graphviz plantuml
 	pip install -r requirements.txt
-	brew install graphviz
 
 png: ## generate model png
 	cd ..;python src/manage.py graph_models {{cookiecutter.project_slug}} -E -o docs/img/model-{{cookiecutter.project_slug}}.png -X Department,TimeStampedModel -n
 
-html: 
+html:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+live:
+	sphinx-autobuild . _build/html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
