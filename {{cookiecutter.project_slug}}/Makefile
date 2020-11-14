@@ -65,5 +65,9 @@ pdf: ## 构建 pdf 文档
 doc-clean: ## 清理 doc 构建数据
 	cd docs && make clean
 
+map: ## 映射服务器资源
+	ssh -NfL 5672:localhost:5672 db01
+	ssh -NfL 5432:localhost:5432 db01
+
 %:  ## cli命令
 	python "cli.py" $(MAKECMDGOALS)
