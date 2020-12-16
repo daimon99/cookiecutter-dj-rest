@@ -2,6 +2,8 @@ help:           ## Show this help.
 	# @fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | sort | awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}'
 
+mac-init: ## mac 依赖包安装。注意应该在 make init 前调用
+	brew install graphviz
 
 init:  ## 初始化python环境，并加载测试数据
 	python -m pip install -r requirements.txt
